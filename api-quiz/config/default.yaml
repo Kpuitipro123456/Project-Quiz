@@ -1,0 +1,58 @@
+service:
+  name: api-quiz
+  baseUrl: /api/quiz
+  docsBaseUrl: /docs/quiz
+  apiVersion: 1.0.0
+  appVersion: 1.0.0
+  internalServicesRegex: ^api-([a-zA-Z0-9]+$)
+
+server:
+  host: SERVER_HOST
+  port: SERVER_PORT
+  hostname: SERVER_HOSTNAME
+  swaggerSchema: http
+  cors:
+    allowedHeaders: "authorization,content-type"
+    exposedHeaders: "authorization,x-page,x-per-page,x-pages-count,x-total-count,x-next-page,x-response-time,x-request-id"
+
+mongodb:
+  uri:  MONGODB_URI
+  debug: MONGODB_DEBUG
+  maxTimeMS: MONGODB_MAXTIME_MS
+  indexProfilingLevel: MONGODB_INDEX_PROFILING_LEVEL
+
+mongodbTest:
+  uri:  MONGODB_URI_TEST
+
+jwtConfig:
+  secret_access_token: SECRET_ACCESS_TOKEN
+  secret_access_token_expire: SECRET_ACCESS_TOKEN_EXPIRE
+  secret_refresh_access_token: SECRET_REFRESH_ACCESS_TOKEN
+  secret_refresh_access_token_expire: SECRET_REFRESH_ACCESS_TOKEN_EXPIRE
+
+cache:
+  enabled: CACHE_ENABLED
+  redis: CACHE_REDIS
+  ttl: CACHE_TTL
+  
+redis:
+  host: REDIS_HOST
+  port: REDIS_PORT
+  options:
+  cluster:
+    nodes:
+    options:
+  clusterMode:
+
+docker: 
+  enabled: DOCKER_ENABLED
+
+mailConfig:
+  service: EMAIL_SERVICE
+  auth: 
+    type: EMAIL_AUTH_TYPE
+    user: EMAIL_AUTH_USER
+    clientId: EMAIL_AUTH_CLIENT_ID
+    clientSecret: EMAIL_AUTH_CLIENT_SECRET
+    refreshToken: EMAIL_AUTH_REFRESH_TOKEN
+    accessToken: EMAIL_AUTH_TOKEN
